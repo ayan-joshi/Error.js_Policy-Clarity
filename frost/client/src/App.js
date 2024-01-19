@@ -7,10 +7,11 @@ import Features from './Components/Features';
 
 function App() {
   return (
-    <div className="App">
-       <Navbar />
+    <div>
+      <h1>HI</h1>
+       {/* <Navbar />
       <Hero />
-      <Features />
+      <Features /> */}
     </div>
   );
 }
