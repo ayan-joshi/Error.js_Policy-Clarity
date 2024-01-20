@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="max-w-full lg:w-4/5 relative w-full flex flex-wrap items-center justify-between mx-auto py-6">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="https://cdn.worldvectorlogo.com/logos/meta-1.svg" className="lg:w-32 w-28 " alt="Flowbite Logo" />
+        <img src="https://img.icons8.com/ios-filled/50/000000/caduceus.png" alt="caduceus"/>
         </a>
 
         {/* Hamburger Menu Button */}
