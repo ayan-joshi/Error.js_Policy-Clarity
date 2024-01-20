@@ -63,30 +63,22 @@ const Navbar = () => {
           >
             <li>
               <a href="#services"  className="block py-2 px-3 rounded md:border-0 text-black  lg:text-lg text-sm font-medium">
-                Use Cases
+               Home
               </a>
             </li>
             <li>
               <a className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="#">
-                Our Team
+                Blogs
               </a>
             </li>
             <li>
               <a  className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="#">
-                Contact Us
+                About
               </a>
             </li>
             {/* Mobile Call to Action Button */}
-            <li className="md:hidden">
-           <button>Contact us </button>
-            </li>
           </ul>
         </motion.div>
-
-        {/* Desktop Call to Action Button */}
-        <div className="lg:block hidden">
-        <button>Contact us </button>
-        </div>
       </div>
     </nav>
   );
