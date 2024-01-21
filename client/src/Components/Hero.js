@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const Hero = () => {
  
   return (
-    <div className="flex justify-center relative items-center flex-col lg:gap-8 gap-5 lg-pt-0  pt-6  bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ...">
+    <div className="flex justify-center relative items-center flex-col lg:gap-8 gap-5 lg-pt-0  pt-6  bg-gradient-to-r from-white-900 via-white-600 to-white-400 ...">
       
       
       {/* <Logo/> */}
