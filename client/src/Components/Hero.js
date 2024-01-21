@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="left-52 w-60 lg:block absolute hidden -top-60 ">
         <Lottie options={{ animationData }} height={200} width={200} />
       </div>
-      <div className="flex justify-center items-center w-[40vw] lg:gap-8 gap-[20px] flex-col z-20">
+      <div className="flex justify-center items-center w-[50vw] lg:gap-8 gap-[20px] flex-col z-20">
         <p className="text-black text-center lg:text-6xl lg:tracking-[-2px] tracking-normal sm:text-3xl text-xl font-medium lg:w-[60%] w-2/3 lg:leading-[60px] leading-7 py-5">
           Summarization of <br />
           Health Insurance Policies
