@@ -166,6 +166,10 @@ const Features = () => {
         <div className="animate-spin rounded-full border-t-4 border-blue-500 border-opacity-25 h-12 w-12 mt-4"></div>
       )}
       {pdfContent && <button onClick={handleDownload}>Download PDF</button>}
+      <p className="text-4xl font-medium">Multilingual Policy Summarization for Future Enhancements</p>
+    <p className="lg:w-3/5 w-full px-12 text-center lg:text-xl text-xs font-normal">Implementing multilingual policy summarization as a future enhancement will <br>
+    </br>enable users to access concise and accurate health insurance <br>
+    </br> policy summaries in their preferred language</p>
     </div>
   );
 };

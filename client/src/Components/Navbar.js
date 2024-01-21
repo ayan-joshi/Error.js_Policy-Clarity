@@ -64,17 +64,18 @@ const Navbar = () => {
             className="flex flex-col md:flex-row font-medium lg:mx-0 mr-5 lg:my-2 mt-1 rounded-lg md:space-x-8 justify-center items-center rtl:space-x-reverse"
           >
            <li>
-            <button href='#policy' class="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-black-500 rounded">
-  Get Started
+            <button  class="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-black-500 rounded">
+              <a href='#policy'>Get Started</a>
+  
 </button>
             </li>
             <li>
-              <a className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="">
+              <a href='#blogs' className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" >
                 Blogs
               </a>
             </li>
             <li>
-              <a className='block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium' href=''>
+              <a href="#contact" className='block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium'>
                 Contact Us
               </a>
             </li>

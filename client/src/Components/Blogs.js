@@ -46,7 +46,7 @@ const Blogs = () => {
 
   return (
     
-    <div className="flex flex-col justify-center items-center overflow-x-auto bg-gradient-to-r from-white-900 via-white-600 to-white-400 ... ">
+    <div id="blogs" className="flex flex-col justify-center items-center overflow-x-auto bg-gradient-to-r from-white-900 via-white-600 to-white-400 ... ">
   <div className="text-center w-full mb-5">
     <p className="text-6xl font-bold">Blogs</p>
   </div>
