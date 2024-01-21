@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd server && node server.js",
-    "nodemon" : "cd server && nodemon server.js",
+    "nodemon": "cd server && nodemon server.js",
     "build": "cd server npm install && npm run build"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "react-lottie": "^1.2.4"
   }
 }
