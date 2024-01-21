@@ -128,6 +128,7 @@ const Features = () => {
       </div>
     </div>
     {pdfContent && <button onClick={handleDownload}>Download PDF</button>}
+    <p className="text-4xl font-medium">Multilingual Policy Summarization for Future Enhancements</p>
   </div>
 );
 };
