@@ -89,7 +89,7 @@ const Features = () => {
 
   return (
     <div
-      className='flex justify-center items-center flex-col py-24 gap-8 z-50'
+      className='flex justify-center items-center flex-col py-24 gap-8 z-50 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ...'
       onDragOver={handleDragOver}
       onDragEnter={handleDragEnter}
       onDrop={handleDrop}

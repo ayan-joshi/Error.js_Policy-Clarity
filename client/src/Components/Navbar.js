@@ -24,7 +24,7 @@ const Navbar = () => {
   // };
 
   return (
-    <nav className="border-gray-200 sticky  backdrop-blur-xl z-50 top-0 w-full flex lg:px-0 px-5 ">
+    <nav className="border-gray-200 sticky  backdrop-blur-xl z-50 top-0 w-full flex lg:px-0 px-5 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 ... ">
       <div className="max-w-full lg:w-4/5 relative w-full flex flex-wrap items-center justify-between mx-auto py-6">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">

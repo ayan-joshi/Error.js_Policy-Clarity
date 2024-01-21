@@ -53,19 +53,19 @@ const Blogs = () => {
       {array.map((item, index) => (
         <div
           key={index}
-          className='flex flex-row justify-start sm:justify-between items-start sm:items-center bg-white w-[290px]  h-[380px]  sm:w-[350px] sm:h-[400px] text-black mx-auto rounded-2xl p-5 shadow-lg mr-6'
+          className='flex flex-col sm:justify-between items-start sm:items-center bg-white w-[290px]  h-[380px]  sm:w-[350px] sm:h-[400px] text-black mx-auto rounded-2xl p-5 shadow-lg mr-6'
         >
              
-          <div className='flex flex-row items-center justify-around h-full sm:items-start'>
-          <div className='flex flex-col items-center justify-center gap-5 sm:flex-row'>
-            <img src={item.title.img} alt='' className='w-20 h-20 rounded-full sm:h-28 sm:w-28 mx-auto sm:mx-0' />
-            <div className='flex flex-col items-center justify-center sm:items-start sm:justify-start'>
-                <p className='font-semibold uppercase'>{item.title.head}</p>
-                <p className='text-center'>{item.title.designation}</p>
-                {/* <p>Age: {item.title.age}</p> */}
-            </div>
-            
-            </div>
+             <div className='flex flex-col items-center justify-around h-full sm:items-start'>
+  <div className='flex flex-col items-center justify-center gap-5 sm:flex-row'>
+    <img src={item.title.img} alt='' className='w-20 h-20 rounded-full sm:h-28 sm:w-28 mx-auto sm:mx-0' />
+    <div className='flex flex-col items-center justify-center sm:items-start sm:justify-start'>
+      <p className='font-semibold uppercase'>{item.title.head}</p>
+      <p className='text-center'>{item.title.designation}</p>
+      {/* <p>Age: {item.title.age}</p> */}
+    </div>
+  </div>
+
 
             <div className='mt-5'>{item.description}</div>
             <div className='flex justify-center w-full mt-3'>
