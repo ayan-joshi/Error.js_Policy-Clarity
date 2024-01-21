@@ -26,7 +26,7 @@ const Navbar = () => {
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <p className="text-black text-center lg:text-4xl md:text-3xl text-xl font-medium lg:w-[60%] w-2/3 lg:leading-[40px] leading-7">
-            VitalInsight
+            PolicyClarity
           </p>
         </a>
 
