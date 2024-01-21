@@ -1,19 +1,27 @@
-import './App.css';
 import React from 'react';
-import Navbar from './Components/navbar';
-import Hero from './Components/Hero';
+
+import Navbar  from './Components/Navbar';
+import Hero from './Components/Hero'
 import Features from './Components/Features';
+import Blogs from './Components/Blogs'
+import { BrowserRouter as Router } from 'react-router-dom';
 
-
-function App() {
+const Home = () => {
   return (
-    <div>
-      <h1>HI</h1>
-       {/* <Navbar />
-      <Hero />
-      <Features /> */}
-    </div>
+    <Router>
+
+    
+
+   <Navbar />
+   <Hero />
+   <Features />
+   <Blogs />
+
+
+    {/* </> */}
+    </Router>
   );
 }
 
-export default App;
+export default Home;
+

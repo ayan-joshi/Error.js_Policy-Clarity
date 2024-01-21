@@ -1,0 +1,94 @@
+import React, { useRef, useState } from 'react';
+
+const Features = () => {
+  const fileInputRef = useRef(null);
+  const [selectedFileName, setSelectedFileName] = useState(null);
+
+  const handleFileChange = (selectedFiles) => {
+    if (selectedFiles.length > 0) {
+      const fileName = selectedFiles[0].name;
+      setSelectedFileName(fileName);
+    }
+  };
+
+  const handleLabelClick = (e) => {
+    e.stopPropagation();
+
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    // Optionally, provide visual feedback to the user
+    // For example, by changing the border color or adding a class to the drop area
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+
+    const droppedFiles = e.dataTransfer.files;
+    handleFileChange(droppedFiles);
+  };
+
+  const handleFileInputChange = (e) => {
+    const selectedFiles = e.target.files;
+    handleFileChange(selectedFiles);
+  };
+  const handleDeleteFile = () => {
+    // Add logic here to delete the file
+    // For example, you might want to make an API request to delete the file on the server
+    // and update the component state accordingly
+    setSelectedFileName(null)
+  };
+  return (
+    <div
+      className='flex justify-center items-center flex-col py-24 gap-8 z-50'
+      onDragOver={handleDragOver}
+      onDragEnter={handleDragEnter}
+      onDrop={handleDrop}
+    >
+      <p className='text-7xl font-medium'>Features</p>
+      <label
+        htmlFor='fileInput'
+        className='flex justify-center items-center rounded-md border-dashed border max-w-4xl w-full border-gray-500 px-6 py-20 cursor-pointer'
+        onClick={handleLabelClick}
+      >
+        <input
+          type='file'
+          id='fileInput'
+          className='hidden'
+          onChange={handleFileInputChange}
+          ref={fileInputRef}
+        />
+        <div className='flex flex-col justify-center items-center gap-2'>
+        {
+selectedFileName ? "" :
+        <span className=''><img width="40" height="25" src="https://img.icons8.com/ios/5000/plus--v1.png" alt="plus--v1"/></span>
+      }
+      <div className='flex flex-col  justify-center items-center gap-5'>
+
+        <span className='ml-2 text-lg'>{selectedFileName && `File Name: ${selectedFileName}`}</span>
+        {
+          selectedFileName ? "" :
+          <span className=' text-gray-600 text-lg text-center'>Click to upload file or Drag <br/>  and drop your files</span>
+        }
+        {selectedFileName ?
+        <div className='flex flex-row justify-center items-center gap-6'>
+           <button className='bg-black px-6 py-2 text-white rounded-md'>Upload</button>
+           <button className='px-6 py-2 border border-black rounded-md' onClick={handleDeleteFile}>Cancel</button>
+          </div> : ""
+           }
+           </div>
+        </div>
+      </label>
+    </div>
+  );
+};
+
+export default Features;
