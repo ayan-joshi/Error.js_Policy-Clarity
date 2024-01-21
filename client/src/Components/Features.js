@@ -143,14 +143,14 @@ const Features = () => {
               <div className="flex flex-row justify-center items-center gap-6">
                 <button
                   type="button"
-                  className="bg-black px-6 py-2 text-white rounded-md"
+                  className="bg-black hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full transition-transform transform hover:scale-105"
                   onClick={handleUpload}
                 >
                   Upload
                 </button>
                 <button
                   type="button"
-                  className="px-6 py-2 border border-black rounded-md"
+                  className="border hover:border-blue-900 text-black font-bold py-2 px-4 rounded-full transition-transform transform hover:scale-105"
                   onClick={handleDeleteFile}
                 >
                   Cancel
@@ -165,11 +165,24 @@ const Features = () => {
       {isLoading && (
         <div className="animate-spin rounded-full border-t-4 border-blue-500 border-opacity-25 h-12 w-12 mt-4"></div>
       )}
-      {pdfContent && <button onClick={handleDownload}>Download PDF</button>}
-      <p className="text-4xl font-medium">Multilingual Policy Summarization for Future Enhancements</p>
-    <p className="lg:w-3/5 w-full px-12 text-center lg:text-xl text-xs font-normal">Implementing multilingual policy summarization as a future enhancement will <br>
-    </br>enable users to access concise and accurate health insurance <br>
-    </br> policy summaries in their preferred language</p>
+      {pdfContent && (
+        <button
+          onClick={handleDownload}
+          className="bg-black hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full transition-transform transform hover:scale-105"
+        >
+          Download PDF
+        </button>
+      )}
+
+      <h1 className="text-4xl font-medium">
+        Enhancing Policy Summaries for Different Languages
+      </h1>
+
+      <p className="lg:w-3/5 w-full px-12 text-center lg:text-xl text-xs font-normal">
+        Making policy summaries available in various languages will make it
+        easier for users to understand and access accurate health insurance
+        information.
+      </p>
     </div>
   );
 };
