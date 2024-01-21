@@ -45,12 +45,17 @@ const Blogs = () => {
   ];
 
   return (
+    
     <div className="flex overflow-x-auto">
+      <div className="text-center w-full mb-5">
+        <p className="text-6xl font-bold">Blogs</p>
+      </div>
       {array.map((item, index) => (
         <div
           key={index}
           className='flex justify-center sm:justify-between items-start sm:items-center bg-white w-[290px]  h-[380px]  sm:w-[350px] sm:h-[400px] text-black mx-auto rounded-2xl p-5 shadow-lg mr-6'
         >
+             
           <div className='flex flex-col items-center justify-around h-full sm:items-start'>
           <div className='flex flex-col items-center justify-center gap-5 sm:flex-row'>
             <img src={item.title.img} alt='' className='w-20 h-20 rounded-full sm:h-28 sm:w-28 mx-auto sm:mx-0' />
