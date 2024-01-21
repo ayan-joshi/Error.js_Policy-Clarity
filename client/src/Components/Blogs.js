@@ -30,6 +30,8 @@ const Blogs = () => {
 
   return (
     <div className="flex flex-wrap justify-center gap-8">
+         <p className="text-black text-center lg:text-6xl lg:tracking-[-4px] tracking-normal sm:text-3xl text-xl font-medium lg:w-[80%] w-2/3 lg:leading-[60px] leading-7">
+         Blogs </p>
       {blogsData.map((blog) => (
         <div key={blog.id} className="max-w-sm rounded overflow-hidden shadow-lg">
           <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />

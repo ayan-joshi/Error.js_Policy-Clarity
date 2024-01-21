@@ -1,57 +1,92 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 const Features = () => {
+  const fileInputRef = useRef(null);
+  const [selectedFileName, setSelectedFileName] = useState(null);
+
+  const handleFileChange = (selectedFiles) => {
+    if (selectedFiles.length > 0) {
+      const fileName = selectedFiles[0].name;
+      setSelectedFileName(fileName);
+    }
+  };
+
+  const handleLabelClick = (e) => {
+    e.stopPropagation();
+
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    // Optionally, provide visual feedback to the user
+    // For example, by changing the border color or adding a class to the drop area
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+
+    const droppedFiles = e.dataTransfer.files;
+    handleFileChange(droppedFiles);
+  };
+
+  const handleFileInputChange = (e) => {
+    const selectedFiles = e.target.files;
+    handleFileChange(selectedFiles);
+  };
+  const handleDeleteFile = () => {
+    // Add logic here to delete the file
+    // For example, you might want to make an API request to delete the file on the server
+    // and update the component state accordingly
+    setSelectedFileName(null)
+  };
   return (
-    <div className='flex justify-center items-center py-44 flex-col relative'>
-      <div className="absolute lg:top-60 top-96 right-8  lg:right-20  ">
-        <img alt="content" width={100} height={50} src='/Sahil.svg' />
-      </div>
-      <div className="absolute lg:top-60 top-[6.5rem] left-8   lg:left-24  ">
-        <img alt="content" width={100} height={50} src='/Vibhor.svg' />
-      </div>
+    <div
+      className='flex justify-center items-center flex-col py-24 gap-8 z-50'
+      onDragOver={handleDragOver}
+      onDragEnter={handleDragEnter}
+      onDrop={handleDrop}
+    >
+      <p className='text-7xl font-medium'>Features</p>
+      <label
+        htmlFor='fileInput'
+        className='flex justify-center items-center rounded-md border-dashed border max-w-4xl w-full border-gray-500 px-6 py-20 cursor-pointer'
+        onClick={handleLabelClick}
+      >
+        <input
+          type='file'
+          id='fileInput'
+          className='hidden'
+          onChange={handleFileInputChange}
+          ref={fileInputRef}
+        />
+        <div className='flex flex-col justify-center items-center gap-2'>
+        {
+selectedFileName ? "" :
+        <span className=''><img width="40" height="25" src="https://img.icons8.com/ios/5000/plus--v1.png" alt="plus--v1"/></span>
+      }
+      <div className='flex flex-col  justify-center items-center gap-5'>
 
-      <div className='flex justify-center items-center gap-3 flex-col 3xl:w-1/3  xl:w-[50%]  w-full lg:px-0 px-12'>
-  <p className='text-black text-center  lg:text-6xl sm:text-4xl text-3xl tracking-normal lg:-tracking-[2px]'>Ideas and Design Where It All Begins</p>
-  <p className='text-[#959499] text-center lg:text-xl text-lg font-normal'>Starting with idea brainstorming, we design a user-centric experience from landing page to product interaction.</p>
-     </div>
-
-
-      <div>
-        <section className="">
-          <div className=" max-w-5xl py-24 flex justify-center items-center">
-            <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-6 gap-8 lg:px-0 px-8 -mb-10 text-center ">
-
-              <div className={`sm:w-1/2  border border-[#282A3A] overflow-hidden rounded-2xl lg:h-[560px] `}>
-                <div className='lg:px-10 px-6 pt-6 lg:pt-12 pb-5'>
-                  <h2 className={`text-left lg:text-[30px] text-xl font-semibold text-[#6950FC] tracking-normal lg:-tracking-[2px] `}>ROI based</h2>
-                  <h2 className="text-left lg:text-[30px]  text-xl font-semibold text-white  tracking-normal lg:-tracking-[2px] mt-1 lg:mt-2">Product Design</h2>
-                  <p className="leading-relaxed  lg:text-[16px] text-sm  text-left py-4 text-[#959499]">
-                    Add collaborative experiences you know and love like text editors, forms, creative tools, and whiteboards with Liveblocks APIs and tools.
-                  </p>
-
-                </div>
-                <div className={`rounded-lg h-full w-full lg:mt-16 mt-0 ml-10 lg:ml-10 overflow-hidden `}>
-                  <img alt="content" width={600} height={600} src="/webp/browser.webp" />
-                </div>
-              </div>
-
-              <div className="sm:w-1/2 lg:h-[556px] h-[350px] overflow-hidden border border-[#282A3A] rounded-2xl">
-                <div className='lg:px-10 px-6 pt-6 lg:pt-12 pb-5'>
-                  <h2 className={`text-left lg:text-[30px] text-xl font-semibold text-[#6950FC] tracking-normal lg:-tracking-[2px] `}>Conversion based</h2>
-                  <h2 className="text-left lg:text-[30px] text-xl font-semibold text-white mt-1 lg:mt-2 tracking-normal lg:-tracking-[2px]">Landing Pages.</h2>
-                  <p className="leading-relaxed  lg:text-[16px] text-sm  text-left py-4 text-[#959499]">
-                    Add collaborative experiences you know and love like text editors, forms, creative tools, and whiteboards with Liveblocks APIs and tools.
-                  </p>
-
-                </div>
-                <div className={`rounded-lg h-full w-full lg:h-80 lg:ml-10 ml-10 mt-0 lg:mt-10 overflow-hidden `}>
-                  <img alt="content" width={500} height={550} src='/frames.svg' />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        <span className='ml-2 text-lg'>{selectedFileName && `File Name: ${selectedFileName}`}</span>
+        {
+          selectedFileName ? "" :
+          <span className=' text-gray-600 text-lg text-center'>Click to upload file or Drag <br/>  and drop your files</span>
+        }
+        {selectedFileName ?
+        <div className='flex flex-row justify-center items-center gap-6'>
+           <button className='bg-black px-6 py-2 text-white rounded-md'>Upload</button>
+           <button className='px-6 py-2 border border-black rounded-md' onClick={handleDeleteFile}>Cancel</button>
+          </div> : ""
+           }
+           </div>
+        </div>
+      </label>
     </div>
   );
 };

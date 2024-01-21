@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="max-w-full lg:w-4/5 relative w-full flex flex-wrap items-center justify-between mx-auto py-6">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="https://img.icons8.com/ios-filled/50/000000/caduceus.png" alt="caduceus"/>
+        <p className="text-black text-center lg:text-6xl lg:tracking-[-2px] tracking-normal sm:text-3xl text-xl font-medium lg:w-[60%] w-2/3 lg:leading-[60px] leading-7">FROST</p>
         </a>
 
         {/* Hamburger Menu Button */}
@@ -67,7 +67,7 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="#">
+              <a className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="Blogs.js">
                 Blogs
               </a>
             </li>
