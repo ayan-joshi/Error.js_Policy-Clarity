@@ -29,6 +29,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.body{
+  scroll-behavior: smooth;
+}
 
 .App-link {
   color: #61dafb;

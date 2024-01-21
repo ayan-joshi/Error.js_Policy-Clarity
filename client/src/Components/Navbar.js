@@ -74,9 +74,9 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a  className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="#">
-                About
-              </a>
+            <button href='#policy' class="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-black-500 rounded">
+  Get Started
+</button>
             </li>
             {/* Mobile Call to Action Button */}
           </ul>

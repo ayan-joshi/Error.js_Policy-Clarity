@@ -86,7 +86,7 @@ const Features = () => {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col py-24 gap-8 z-50 bg-gradient-to-r from-white-1200 via-white-600 to-white-400 ..." onDragOver={handleDragOver} onDragEnter={handleDragEnter} onDrop={handleDrop}>
+    <div id='policy' className="flex justify-center items-center flex-col py-24 gap-8 z-50 bg-gradient-to-r from-white-1200 via-white-600 to-white-400 ..." onDragOver={handleDragOver} onDragEnter={handleDragEnter} onDrop={handleDrop}>
     <p className="text-7xl font-medium">Upload Policies</p>
     <div className="flex justify-center items-center rounded-md border-dashed border max-w-4xl w-full border-gray-500 px-6 py-20 cursor-pointer" onClick={handleLabelClick}>
       <input type="file" className="hidden" onChange={handleFileInputChange} ref={fileInputRef} />
