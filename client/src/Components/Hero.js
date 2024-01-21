@@ -18,11 +18,11 @@ const Hero = () => {
       </div >
       <div className="flex justify-center items-center lg:gap-8 gap-[20px] flex-col z-20" >
         {/* <p className='text-primary lg:text-lg  text-sm font-medium lg:leading-7 leading-5'>Some Title Here</p> */}
-        <p className="text-black text-center lg:text-6xl lg:tracking-[-2px] tracking-normal sm:text-3xl text-xl font-medium lg:w-[60%] w-2/3 lg:leading-[60px] leading-7">
+        <p className="text-black text-center lg:text-6xl lg:tracking-[-2px] tracking-normal sm:text-3xl text-xl font-medium lg:w-[60%] w-2/3 lg:leading-[60px] leading-7 py-5">
           Summarization of <br />
           Health Insurance Policies
         </p>
-        <p className="lg:w-3/5 w-full px-12 text-center lg:text-xl text-xs font-normal ">
+        <p className="lg:w-3/5 w-full px-12 text-center lg:text-xl text-xs font-normal  ">
           We Summarize the policies for individuals to help them 
           prevent Scams and explain them policies .
         </p>

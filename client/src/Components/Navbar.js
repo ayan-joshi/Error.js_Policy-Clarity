@@ -63,21 +63,22 @@ const Navbar = () => {
           <ul
             className="flex flex-col md:flex-row font-medium lg:mx-0 mr-5 lg:my-2 mt-1 rounded-lg md:space-x-8 justify-center items-center rtl:space-x-reverse"
           >
-            <li>
-              <a href="#services"  className="block py-2 px-3 rounded md:border-0 text-black  lg:text-lg text-sm font-medium">
-               Home
-              </a>
-            </li>
-            <li>
-              <a className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="Blogs.js">
-                Blogs
-              </a>
-            </li>
-            <li>
+           <li>
             <button href='#policy' class="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-black-500 rounded">
   Get Started
 </button>
             </li>
+            <li>
+              <a className="block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium" href="">
+                Blogs
+              </a>
+            </li>
+            <li>
+              <a className='block py-2 px-3 text-gray-900 dark:text-black lg:text-lg text-sm font-medium' href=''>
+                Contact Us
+              </a>
+            </li>
+            
             {/* Mobile Call to Action Button */}
           </ul>
         </motion.div>
