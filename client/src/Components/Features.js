@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import axios from 'axios';
+import React, { useRef, useState } from "react";
+import axios from "axios";
 
 const Features = () => {
   const fileInputRef = useRef(null);
@@ -13,10 +13,8 @@ const Features = () => {
     }
   };
 
-  const handleLabelClick = (e) => {
-    e.stopPropagation();
-
-    if (fileInputRef.current) {
+  const handleLabelClick = () => {
+    if (!selectedFileName && fileInputRef.current) {
       fileInputRef.current.click();
     }
   };
@@ -46,7 +44,7 @@ const Features = () => {
       const apiUrl = "http://127.0.0.1:8000/uploadfile/";
 
       const formData = new FormData();
-      formData.append("file", selectedFileName);
+      formData.append("file", fileInputRef.current.files[0]);
 
       axios
         .post(apiUrl, formData, {
@@ -89,38 +87,69 @@ const Features = () => {
 
   return (
     <div
-      className='flex justify-center items-center flex-col py-24 gap-8 z-50'
+      className="flex justify-center items-center flex-col py-24 gap-8 z-50"
       onDragOver={handleDragOver}
       onDragEnter={handleDragEnter}
       onDrop={handleDrop}
     >
-      <p className='text-7xl font-medium'>Features</p>
-      <label
-        htmlFor='fileInput'
-        className='flex justify-center items-center rounded-md border-dashed border max-w-4xl w-full border-gray-500 px-6 py-20 cursor-pointer'
+      <p className="text-7xl font-medium">Features</p>
+      <div
+        className="flex justify-center items-center rounded-md border-dashed border max-w-4xl w-full border-gray-500 px-6 py-20 cursor-pointer"
         onClick={handleLabelClick}
       >
         <input
-          type='file'
-          id='fileInput'
-          className='hidden'
+          type="file"
+          className="hidden"
           onChange={handleFileInputChange}
           ref={fileInputRef}
         />
-        <div className='flex flex-col justify-center items-center gap-2'>
-          {selectedFileName ? "" : <span className=''><img width="40" height="25" src="https://img.icons8.com/ios/5000/plus--v1.png" alt="plus--v1"/></span>}
-          <div className='flex flex-col justify-center items-center gap-5'>
-            <span className='ml-2 text-lg'>{selectedFileName && `File Name: ${selectedFileName}`}</span>
-            {selectedFileName ? "" : <span className=' text-gray-600 text-lg text-center'>Click to upload file or Drag <br/>  and drop your files</span>}
-            {selectedFileName ? 
-              <div className='flex flex-row justify-center items-center gap-6'>
-                <button className='bg-black px-6 py-2 text-white rounded-md' onClick={handleUpload}>Upload</button>
-                <button className='px-6 py-2 border border-black rounded-md' onClick={handleDeleteFile}>Cancel</button>
-              </div> : ""
-            }
+        <div className="flex flex-col justify-center items-center gap-2">
+          {selectedFileName ? (
+            ""
+          ) : (
+            <span className="">
+              <img
+                width="40"
+                height="25"
+                src="https://img.icons8.com/ios/5000/plus--v1.png"
+                alt="plus--v1"
+              />
+            </span>
+          )}
+          <div className="flex flex-col justify-center items-center gap-5">
+            <span className="ml-2 text-lg">
+              {selectedFileName && `File Name: ${selectedFileName}`}
+            </span>
+            {selectedFileName ? (
+              ""
+            ) : (
+              <span className=" text-gray-600 text-lg text-center">
+                Click to upload file or Drag <br /> and drop your files
+              </span>
+            )}
+            {selectedFileName ? (
+              <div className="flex flex-row justify-center items-center gap-6">
+                <button
+                  type="button"
+                  className="bg-black px-6 py-2 text-white rounded-md"
+                  onClick={handleUpload}
+                >
+                  Upload
+                </button>
+                <button
+                  type="button"
+                  className="px-6 py-2 border border-black rounded-md"
+                  onClick={handleDeleteFile}
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
-      </label>
+      </div>
       {pdfContent && <button onClick={handleDownload}>Download PDF</button>}
     </div>
   );
