@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
+import axios from 'axios';
 
 const Features = () => {
   const fileInputRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState(null);
+  const [pdfContent, setPdfContent] = useState(null);
 
   const handleFileChange = (selectedFiles) => {
     if (selectedFiles.length > 0) {
@@ -25,8 +27,6 @@ const Features = () => {
 
   const handleDragEnter = (e) => {
     e.preventDefault();
-    // Optionally, provide visual feedback to the user
-    // For example, by changing the border color or adding a class to the drop area
   };
 
   const handleDrop = (e) => {
@@ -40,12 +40,53 @@ const Features = () => {
     const selectedFiles = e.target.files;
     handleFileChange(selectedFiles);
   };
-  const handleDeleteFile = () => {
-    // Add logic here to delete the file
-    // For example, you might want to make an API request to delete the file on the server
-    // and update the component state accordingly
-    setSelectedFileName(null)
+
+  const handleUpload = () => {
+    if (selectedFileName) {
+      const apiUrl = "http://127.0.0.1:8000/uploadfile/";
+
+      const formData = new FormData();
+      formData.append("file", selectedFileName);
+
+      axios
+        .post(apiUrl, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "blob",
+        })
+        .then((response) => {
+          setPdfContent(response.data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } else {
+      console.log("Please select a file");
+    }
   };
+
+  const handleDownload = () => {
+    if (pdfContent) {
+      const blob = new Blob([pdfContent], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "output.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      console.log("No PDF content available for download");
+    }
+  };
+
+  const handleDeleteFile = () => {
+    setSelectedFileName(null);
+    setPdfContent(null);
+  };
+
   return (
     <div
       className='flex justify-center items-center flex-col py-24 gap-8 z-50'
@@ -67,26 +108,20 @@ const Features = () => {
           ref={fileInputRef}
         />
         <div className='flex flex-col justify-center items-center gap-2'>
-        {
-selectedFileName ? "" :
-        <span className=''><img width="40" height="25" src="https://img.icons8.com/ios/5000/plus--v1.png" alt="plus--v1"/></span>
-      }
-      <div className='flex flex-col  justify-center items-center gap-5'>
-
-        <span className='ml-2 text-lg'>{selectedFileName && `File Name: ${selectedFileName}`}</span>
-        {
-          selectedFileName ? "" :
-          <span className=' text-gray-600 text-lg text-center'>Click to upload file or Drag <br/>  and drop your files</span>
-        }
-        {selectedFileName ?
-        <div className='flex flex-row justify-center items-center gap-6'>
-           <button className='bg-black px-6 py-2 text-white rounded-md'>Upload</button>
-           <button className='px-6 py-2 border border-black rounded-md' onClick={handleDeleteFile}>Cancel</button>
-          </div> : ""
-           }
-           </div>
+          {selectedFileName ? "" : <span className=''><img width="40" height="25" src="https://img.icons8.com/ios/5000/plus--v1.png" alt="plus--v1"/></span>}
+          <div className='flex flex-col justify-center items-center gap-5'>
+            <span className='ml-2 text-lg'>{selectedFileName && `File Name: ${selectedFileName}`}</span>
+            {selectedFileName ? "" : <span className=' text-gray-600 text-lg text-center'>Click to upload file or Drag <br/>  and drop your files</span>}
+            {selectedFileName ? 
+              <div className='flex flex-row justify-center items-center gap-6'>
+                <button className='bg-black px-6 py-2 text-white rounded-md' onClick={handleUpload}>Upload</button>
+                <button className='px-6 py-2 border border-black rounded-md' onClick={handleDeleteFile}>Cancel</button>
+              </div> : ""
+            }
+          </div>
         </div>
       </label>
+      {pdfContent && <button onClick={handleDownload}>Download PDF</button>}
     </div>
   );
 };
