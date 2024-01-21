@@ -1,48 +1,78 @@
-import React, { useState } from "react";
+import React from 'react';
+import Blog1 from '../assets/blog1.jpg' 
+import Blog2 from '../assets/blog2.jpg'
+import Blog3 from '../assets/blog3.jpg' 
+import Blog4 from '../assets/blog4.jpg'
+
 
 const Blogs = () => {
-  const blogsData = [
+  const array = [
     {
-      id: 1,
-      title: "Blog Title 1",
-      image: "./public/assets/blog1.jpg", // Replace with the actual image path
-      link: "/blog1", // Replace with the actual link
+      title: {
+
+        img: Blog1,
+        link: "https://www.zeebiz.com/personal-finance/insurance/news-health-insurance-5-problems-that-indian-insurance-policyholders-face-the-most-stst-249581"
+      },
+      description: '5 problems that Indian insurance policyholders face the most'
     },
     {
-      id: 2,
-      title: "Blog Title 2",
-      image: "/blog2.jpg", // Replace with the actual image path
-      link: "/blog2", // Replace with the actual link
+      title: {
+        img: Blog2,
+        link: "https://myhealthmath.com/2020/09/02/how-to-read-your-summary-of-benefits-and-coverage-tips-for-interpreting-your-plan-documents/"
+      },
+      description: 'How to Read A Summary of Benefits and Coverage: Tips for interpreting your plan documents'
     },
     {
-      id: 3,
-      title: "Blog Title 3",
-      image: "/blog3.jpg", // Replace with the actual image path
-      link: "/blog3", // Replace with the actual link
+      title: {
+        img: Blog3,
+        link: "https://www.tn.gov/attorneygeneral/working-for-tennessee/consumer/resources/materials/healthcare-scams.html"
+
+      },
+      description: 'What You Need to Know about Health Care Scams.'
     },
     {
-      id: 4,
-      title: "Blog Title 4",
-      image: "/blog4.jpg", // Replace with the actual image path
-      link: "/blog4", // Replace with the actual link
+     
+      title: {
+        img: Blog4,
+        link: "https://www.hdfcergo.com/blogs/health-insurance/fraud-and-health-insurance-claims"
+      },
+      description: 'Fraud and Health Insurance Claims – Here’s What You Need to Know'
     },
+
+
+
+
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-8">
-         <p className="text-black text-center lg:text-6xl lg:tracking-[-4px] tracking-normal sm:text-3xl text-xl font-medium lg:w-[80%] w-2/3 lg:leading-[60px] leading-7">
-         Blogs </p>
-      {blogsData.map((blog) => (
-        <div key={blog.id} className="max-w-sm rounded overflow-hidden shadow-lg">
-          <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />
-          <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">{blog.title}</div>
-            <p className="text-gray-700 text-base">Description or snippet of the blog.</p>
-          </div>
-          <div className="px-6 pt-4 pb-2">
-            <a href={blog.link} className="text-blue-500 hover:underline">
-              Read More
-            </a>
+    <div className="flex overflow-x-auto">
+      {array.map((item, index) => (
+        <div
+          key={index}
+          className='flex justify-center sm:justify-between items-start sm:items-center bg-white w-[290px]  h-[380px]  sm:w-[350px] sm:h-[400px] text-black mx-auto rounded-2xl p-5 shadow-lg mr-6'
+        >
+          <div className='flex flex-col items-center justify-around h-full sm:items-start'>
+            <div className='flex flex-col items-center justify-center gap-5 sm:flex-row'>
+              <img src={item.title.img} alt='' className='w-20 h-20 rounded-full sm:h-28 sm:w-28 ' />
+              <div className='flex flex-col items-center justify-center sm:items-start sm:justify-start'>
+                <p className='font-semibold uppercase ' >{item.title.head}</p>
+                <p className='text-center'>{item.title.designation}</p>
+                {/* <p>Age: {item.title.age}</p> */}
+              </div>
+            </div>
+
+            <div className='mt-5'>{item.description}</div>
+            <div className='flex justify-center w-full mt-3'>
+              <a className='flex items-center justify-between gap-2 px-5 py-2 text-white transition-all duration-1000 bg-black border border-black rounded-lg connect group hover:text-black hover:bg-white' href={item.title.link} target='_blank'>
+                Read More
+              </a>
+              <br />
+            </div>
+            {/* <div className='flex justify-center pt-2'>
+                <div className='bg-white border-2 border-black rounded-xl'>
+<p className='flex items-center justify-center w-32 px-4 '><img src={item.title.img} width="50px"/> {item.title.name}</p>
+                </div>
+              </div> */}
           </div>
         </div>
       ))}
