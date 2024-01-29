@@ -109,8 +109,9 @@ const Features = () => {
         className="flex justify-center items-center rounded-md border-dashed border max-w-4xl w-full border-gray-500 px-6 py-20 cursor-pointer"
         onClick={handleLabelClick}
       >
-        <input
+        <input 
           type="file"
+          accept=".pdf"
           className="hidden"
           onChange={handleFileInputChange}
           ref={fileInputRef}
