@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# PolicyClarity
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PolicyClarity is a free and user-friendly platform designed to help users understand complex policies by providing simple and clear summaries. The inspiration behind this project came from a team member's family almost falling victim to a scam. In response to the need for easily understandable policy information, PolicyClarity aims to provide summaries of legal documents, eliminating the need for users to rely on legal expertise.
 
-## Available Scripts
+## Try It Out
 
-In the project directory, you can run:
+Explore PolicyClarity: [PolicyClarity](https://frost-three.vercel.app/)
 
-### `npm start`
+## What PolicyClarity Does
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+PolicyClarity addresses the following issues:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Simplifying Government Schemes:** By offering summaries of entire policies, PolicyClarity makes it easier for users to comprehend government schemes.
 
-### `npm test`
+2. **Reducing Time Consumption:** Users can quickly understand policies, reducing the time it takes to grasp complex legal documents.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Preventing Scams:** Detailed summaries for each page in a policy enhance understanding, reducing the likelihood of falling victim to scams or false information.
 
-### `npm run build`
+## How We Built It
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The development process involved setting up the front-end and back-end, building and training a model, creating a server, and integrating the trained model with the front-end. The frontend was developed using React, and the backend, initially planned in Node, was implemented using Python's FastAPI due to compatibility issues. The AI model was built in Python, utilizing generative AI for training.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Challenges Faced
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The team encountered challenges related to WiFi connectivity issues, difficulties in building a model using Hugging Face, and struggles in handling data type changes when sending PDFs from Node to FastAPI. Hosting the FastAPI backend also posed challenges that the team is actively addressing.
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Backend:** Python's FastAPI
+- **Frontend:** React, Tailwind CSS
+- **AI Model:** Python with generative AI
+- **Libraries:** easyocr, genai, tailwind, FPDF, pdfplumber, etc.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Accomplishments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The team successfully developed a functional platform that delivers policy summaries as intended. Additionally, they take pride in the dedication and efficiency displayed during the 27-hour development period, showcasing the team's commitment to the project.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contribution
 
-## Learn More
+If you are interested in contributing to PolicyClarity, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive commit messages.
+4. Push your changes to your fork.
+5. Open a pull request, describing the changes you made and why they are necessary.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+We welcome contributions from the community to make PolicyClarity even more effective and accessible.
 
-### Code Splitting
+## What's Next for PolicyClarity
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Future plans for PolicyClarity include the integration of different language models to accommodate users of various languages. The team aims to evolve PolicyClarity into a full-fledged non-profit initiative to assist people on a larger scale.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
