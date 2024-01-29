@@ -44,7 +44,7 @@ const Features = () => {
     if (selectedFileName) {
       setIsLoading(true);
 
-      const apiUrl = "http://127.0.0.1:8000/uploadfile/";
+      const apiUrl = "https://policy-clarity-server.onrender.com/uploadfile/";
 
       const formData = new FormData();
       formData.append("file", fileInputRef.current.files[0]);
