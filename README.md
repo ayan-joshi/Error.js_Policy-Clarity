@@ -31,6 +31,26 @@ The team encountered challenges related to WiFi connectivity issues, difficultie
 - **AI Model:** Python with generative AI
 - **Libraries:** easyocr, genai, tailwind, FPDF, pdfplumber, etc.
 
+## How to run the project?
+- **Frontend**
+- Firstly,
+  ```bash
+  git clone https://github.com/ayan-joshi/Error.js_Policy-Clarity.git
+  ```
+- After this, move into the project directory using,
+  ```bash
+  cd Error.js_Policy-Clarity
+  ```
+- Now move into the corresponding client and server directory and run,
+  ```bash
+  npm i
+  ```
+- Keep both the command shell's open and finally run,
+  ```bash
+  npm run start
+  ```
+- The project will run on your corresponding local host.
+
 ## Accomplishments
 
 The team successfully developed a functional platform that delivers policy summaries as intended. Additionally, they take pride in the dedication and efficiency displayed during the 27-hour development period, showcasing the team's commitment to the project.
